@@ -9,7 +9,6 @@ func _process(delta):
 	if timer >= BURN_TICK:
 		timer = 0.0
 		var parent = get_parent()
-		parent.health -= stacks
-		print("Burned for ", stacks, "! Health: ", parent.health)
-		if parent.health <= 0:
-			parent.queue_free()
+		parent.take_damage(stacks, parent.name)
+		if not is_instance_valid(parent):
+			queue_free()

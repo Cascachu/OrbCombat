@@ -1,4 +1,4 @@
-extends "res://ball.gd"
+extends "res://Fighters/ball.gd"
 
 func _ready():
 	max_health = 80
@@ -12,23 +12,20 @@ func _physics_process(delta):
 		var collider = collision.get_collider()
 		if collider.is_in_group("ball"):
 			apply_burn(collider)
-			health -= collider.damage  
+			take_damage(collider.damage, name)
 			var push_direction = global_position - collider.global_position
 			velocity = push_direction.normalized() * speed
-			print("Fire Orb got hit! Health: ", health)
-			if health <= 0:
-				queue_free()
 		else:
 			velocity = velocity.bounce(collision.get_normal())
 
 func apply_burn(target):
 	var existing = target.get_node_or_null("Burn")
 	if existing:
-		existing.stacks += 1  
+		existing.stacks += 1
 		return
 	
 	var burn = Node.new()
 	burn.name = "Burn"
-	burn.set_script(preload("res://burn.gd"))
+	burn.set_script(preload("res://Abilities/burn.gd"))
 	target.add_child(burn)
 	burn.stacks = 1

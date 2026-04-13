@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://j43255y0q6xt"]
+
+[ext_resource type="Script" uid="uid://daj5hmmauett3" path="res://ice_orb.gd" id="1_p0aud"]
+[ext_resource type="Texture2D" uid="uid://dtptvpqlsqb6g" path="res://icon.svg" id="2_eygpu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ud1ju"]
+radius = 70.03667
+
+[node name="Ice Orb" type="CharacterBody2D" unique_id=244283947 groups=["ball"]]
+script = ExtResource("1_p0aud")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1586910168]
+texture = ExtResource("2_eygpu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564277257]
+shape = SubResource("CircleShape2D_ud1ju")
