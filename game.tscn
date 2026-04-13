@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dr22tbjj5gmp5"]
+
+[ext_resource type="PackedScene" uid="uid://dqvwvrs32a6lm" path="res://ball.tscn" id="1_e2o6t"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_feb5d"]
+a = Vector2(0, 648)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fc0e3"]
+b = Vector2(1152, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_e2o6t"]
+b = Vector2(-1152, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_80nbo"]
+b = Vector2(0, -648)
+
+[node name="Game" type="Node2D" unique_id=1734292379]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=552207043]
+position = Vector2(576, 324)
+
+[node name="WorldBorders" type="Node2D" parent="." unique_id=1257029283]
+
+[node name="left" type="RigidBody2D" parent="WorldBorders" unique_id=51774680]
+freeze = true
+
+[node name="TLHorizontal" type="CollisionShape2D" parent="WorldBorders/left" unique_id=1075504395]
+shape = SubResource("SegmentShape2D_feb5d")
+
+[node name="top" type="RigidBody2D" parent="WorldBorders" unique_id=1700902988]
+freeze = true
+
+[node name="TLVertical" type="CollisionShape2D" parent="WorldBorders/top" unique_id=1078312346]
+shape = SubResource("SegmentShape2D_fc0e3")
+
+[node name="bottom" type="RigidBody2D" parent="WorldBorders" unique_id=922025722]
+position = Vector2(586, 179)
+freeze = true
+
+[node name="BRHorizontal" type="CollisionShape2D" parent="WorldBorders/bottom" unique_id=1949612561]
+position = Vector2(566, 469)
+shape = SubResource("SegmentShape2D_e2o6t")
+
+[node name="right" type="RigidBody2D" parent="WorldBorders" unique_id=2005693540]
+position = Vector2(586, 179)
+freeze = true
+
+[node name="BRVertical" type="CollisionShape2D" parent="WorldBorders/right" unique_id=2072683364]
+position = Vector2(566, 469)
+shape = SubResource("SegmentShape2D_80nbo")
+
+[node name="Fighters" type="Node2D" parent="." unique_id=1468436751]
+
+[node name="Ball" parent="Fighters" unique_id=1385498592 instance=ExtResource("1_e2o6t")]
+position = Vector2(579, 325)
+damage = 12
+
+[node name="Ball2" parent="Fighters" unique_id=1092848375 instance=ExtResource("1_e2o6t")]
+position = Vector2(343, 392.00003)
+max_health = 150
+damage = 8
+size = 1.5
