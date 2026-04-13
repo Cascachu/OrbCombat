@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cuh60jg3rrbff"]
+
+[ext_resource type="Script" uid="uid://ckhnnvialojq5" path="res://Fighters/slime_orb.gd" id="1_q3801"]
+[ext_resource type="Texture2D" uid="uid://ey5lnpg8dhbt" path="res://Fighters/Sprites/SlimeOrb.svg" id="2_q3801"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k7ex3"]
+radius = 70.03667
+
+[node name="Slime Orb" type="CharacterBody2D" unique_id=971296346 groups=["ball"]]
+script = ExtResource("1_q3801")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1734556799]
+texture = ExtResource("2_q3801")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1147807819]
+shape = SubResource("CircleShape2D_k7ex3")
