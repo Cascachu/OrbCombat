@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dr22tbjj5gmp5"]
 
 [ext_resource type="PackedScene" uid="uid://dqvwvrs32a6lm" path="res://ball.tscn" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://uu5qd4fxhvyn" path="res://fire_orb.tscn" id="2_e2o6t"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_feb5d"]
 a = Vector2(0, 648)
@@ -53,10 +54,6 @@ shape = SubResource("SegmentShape2D_80nbo")
 
 [node name="Ball" parent="Fighters" unique_id=1385498592 instance=ExtResource("1_e2o6t")]
 position = Vector2(579, 325)
-damage = 12
 
-[node name="Ball2" parent="Fighters" unique_id=1092848375 instance=ExtResource("1_e2o6t")]
-position = Vector2(343, 392.00003)
-max_health = 150
-damage = 8
-size = 1.5
+[node name="fire_orb" parent="Fighters" unique_id=2121634047 groups=["ball"] instance=ExtResource("2_e2o6t")]
+position = Vector2(265, 217)

@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
-@export var speed = 300.0
-@export var max_health = 100
-@export var damage = 10
-@export var size = 1.0
-
+var speed = 500.0
+var max_health = 100
+var damage = 10
+var size = 1.0
 var health
 
 
@@ -12,7 +11,6 @@ var health
 func _ready():
 	health = max_health
 	velocity = Vector2(-200, -200).normalized()*speed
-	
 	scale = Vector2(size, size)
 
 
@@ -25,6 +23,6 @@ func _physics_process(delta):
 			health -= collider.damage
 			var push_direction = global_position - collider.global_position
 			velocity = push_direction.normalized() * speed
-			print("Hit a ball! Health: ", health)
+			print("Ball got hit! Health: ", health)
 			if health <= 0:
 				queue_free()

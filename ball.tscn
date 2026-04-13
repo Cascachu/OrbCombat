@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dtptvpqlsqb6g" path="res://icon.svg" id="1_x8fbi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_41u45"]
-radius = 84.0238
+radius = 70.03667
 
 [node name="Ball" type="CharacterBody2D" unique_id=1385498592 groups=["ball"]]
 scale = Vector2(0.5996859, 0.5996859)
