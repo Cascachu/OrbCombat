@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ug31ymyhe3dy"]
+
+[ext_resource type="Script" uid="uid://bdj8uwmxig6s" path="res://Fighters/sword_orb.gd" id="1_l0nn6"]
+[ext_resource type="Texture2D" uid="uid://d2wpqwounor2k" path="res://Fighters/Sprites/SwordOrb.svg" id="2_1gx1d"]
+[ext_resource type="Script" uid="uid://bn6jul0kf7vdf" path="res://Fighters/sword.gd" id="3_y1kgs"]
+[ext_resource type="Texture2D" uid="uid://bpqqdew1vxt1t" path="res://Fighters/Sprites/Sword.svg" id="4_1gx1d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0nn6"]
+radius = 70.03667
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y1kgs"]
+height = 169.33655
+
+[node name="Sword Orb" type="CharacterBody2D" unique_id=453033390 groups=["ball"]]
+script = ExtResource("1_l0nn6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2146203183]
+texture = ExtResource("2_1gx1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1567359921]
+shape = SubResource("CircleShape2D_l0nn6")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=2121572171]
+
+[node name="Sword" type="Area2D" parent="Pivot" unique_id=617111115]
+script = ExtResource("3_y1kgs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot/Sword" unique_id=759149203]
+position = Vector2(0, -125.000015)
+scale = Vector2(0.7803389, 0.7803389)
+texture = ExtResource("4_1gx1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Sword" unique_id=1793663911]
+position = Vector2(0, -125)
+scale = Vector2(1.6071247, 0.5905401)
+shape = SubResource("CapsuleShape2D_y1kgs")
