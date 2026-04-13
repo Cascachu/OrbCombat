@@ -22,13 +22,18 @@ func _ready():
 func use_ability(target):
 	pass
 
+var is_dying = false
+
 func take_damage(amount, damaged_name):
+	if is_dying:
+		return
 	health -= amount
 	print(damaged_name, " got hit! Health: ", health)
 	if health <= 0:
 		die()
 
 func die():
+	is_dying = true
 	if generation < MAX_GENERATIONS:
 		for i in 2:
 			var child = duplicate()
