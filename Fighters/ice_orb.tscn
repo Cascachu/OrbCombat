@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://j43255y0q6xt"]
 
-[ext_resource type="Script" uid="uid://daj5hmmauett3" path="res://ice_orb.gd" id="1_p0aud"]
+[ext_resource type="Script" uid="uid://daj5hmmauett3" path="res://Fighters/ice_orb.gd" id="1_p0aud"]
 [ext_resource type="Texture2D" uid="uid://ccxbv2k3sbhpn" path="res://Fighters/Sprites/IceOrb.svg" id="2_p0aud"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ud1ju"]

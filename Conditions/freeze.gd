@@ -1,6 +1,6 @@
 extends Node
 
-var ticks_remaining = 4
+var ticks_remaining = 3
 var tick_timer = 0.0
 const TICK_TIME = 1.0
 
