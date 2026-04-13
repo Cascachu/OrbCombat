@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dr22tbjj5gmp5"]
 
 [ext_resource type="PackedScene" uid="uid://uu5qd4fxhvyn" path="res://Fighters/fire_orb.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://j43255y0q6xt" path="res://Fighters/ice_orb.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://dqvwvrs32a6lm" path="res://Fighters/ball.tscn" id="2_feb5d"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_feb5d"]
 a = Vector2(0, 648)
@@ -55,5 +55,5 @@ shape = SubResource("SegmentShape2D_80nbo")
 [node name="Fire Orb" parent="Fighters" unique_id=2121634047 groups=["ball"] instance=ExtResource("2_e2o6t")]
 position = Vector2(265, 217)
 
-[node name="Ice Orb" parent="Fighters" unique_id=244283947 instance=ExtResource("3_feb5d")]
-position = Vector2(760, 273)
+[node name="Ball" parent="Fighters" unique_id=1385498592 instance=ExtResource("2_feb5d")]
+position = Vector2(860, 251)

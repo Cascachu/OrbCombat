@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dqvwvrs32a6lm"]
 
 [ext_resource type="Script" uid="uid://d178dyyi83w8p" path="res://Fighters/ball.gd" id="1_41u45"]
-[ext_resource type="Texture2D" uid="uid://dtptvpqlsqb6g" path="res://icon.svg" id="1_x8fbi"]
+[ext_resource type="Texture2D" uid="uid://dqbcocaghbp0n" path="res://Fighters/Sprites/Ball.svg" id="2_6b8s7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_41u45"]
 radius = 70.03667
@@ -11,7 +11,7 @@ scale = Vector2(0.5996859, 0.5996859)
 script = ExtResource("1_41u45")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=295658906]
-texture = ExtResource("1_x8fbi")
+texture = ExtResource("2_6b8s7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1413518757]
 shape = SubResource("CircleShape2D_41u45")

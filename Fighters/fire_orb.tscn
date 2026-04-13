@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://uu5qd4fxhvyn"]
 
-[ext_resource type="Texture2D" uid="uid://dtptvpqlsqb6g" path="res://icon.svg" id="1_b7npf"]
 [ext_resource type="Script" uid="uid://by5o3bggyf55r" path="res://Fighters/fire_orb.gd" id="1_ypt65"]
+[ext_resource type="Texture2D" uid="uid://br1jc6dc3jijs" path="res://Fighters/Sprites/FireOrb.svg" id="2_u4uir"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ypt65"]
 radius = 70.03667
@@ -10,7 +10,7 @@ radius = 70.03667
 script = ExtResource("1_ypt65")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1371724053]
-texture = ExtResource("1_b7npf")
+texture = ExtResource("2_u4uir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=385299559]
 shape = SubResource("CircleShape2D_ypt65")
