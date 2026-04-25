@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://hfovvtbvvgk0"]
+
+[ext_resource type="Script" uid="uid://b8hh8li4brcrd" path="res://fighter_select.gd" id="1_cq34e"]
+
+[node name="Fighter Selection" type="Control" unique_id=437093476]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Fighter Select" type="Control" parent="." unique_id=559926024]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Fighter Select" unique_id=1662352123]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_right = 56.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Select Fighters"
+
+[node name="Fighters" type="Control" parent="Fighter Select" unique_id=1948718383]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -103.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_cq34e")
+
+[node name="Fighter 1" type="VBoxContainer" parent="Fighter Select/Fighters" unique_id=1030651693]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 47.0
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Fighter Select/Fighters/Fighter 1" unique_id=817202160]
+layout_mode = 2
+text = "Fighter 1"
+
+[node name="OptionButton" type="OptionButton" parent="Fighter Select/Fighters/Fighter 1" unique_id=832928363]
+layout_mode = 2
+
+[node name="Fighter 2" type="VBoxContainer" parent="Fighter Select/Fighters" unique_id=1546486820]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -23.5
+offset_bottom = 23.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="Fighter Select/Fighters/Fighter 2" unique_id=333844005]
+layout_mode = 2
+text = "Fighter 2"
+
+[node name="OptionButton" type="OptionButton" parent="Fighter Select/Fighters/Fighter 2" unique_id=1212737270]
+layout_mode = 2
+
+[node name="Fight!" type="Button" parent="Fighter Select" unique_id=60205262]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -176.0
+offset_right = 26.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Fight!"
+
+[node name="ColorRect" type="ColorRect" parent="Fighter Select" unique_id=1601584570]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.11481296, 0.094585754, 0.13023326, 1)
+
+[connection signal="pressed" from="Fighter Select/Fight!" to="Fighter Select/Fighters" method="_on_fight_pressed"]

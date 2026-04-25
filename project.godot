@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="BallGame"
-run/main_scene="uid://dr22tbjj5gmp5"
+run/main_scene="uid://cvwyuc7gpv3ph"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*uid://bcfs0fprxunfk"
 
 [global_group]
 

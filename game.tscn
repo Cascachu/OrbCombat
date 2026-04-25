@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://dr22tbjj5gmp5"]
 
-[ext_resource type="PackedScene" uid="uid://uu5qd4fxhvyn" path="res://Fighters/fire_orb.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://dqvwvrs32a6lm" path="res://Fighters/ball.tscn" id="2_feb5d"]
+[ext_resource type="Script" uid="uid://2s5bx1fvgx7j" path="res://game.gd" id="1_ryrav"]
+[ext_resource type="Script" uid="uid://b5wh3lqcdxpye" path="res://stats_panel.gd" id="3_7jktm"]
+[ext_resource type="Texture2D" uid="uid://ey5lnpg8dhbt" path="res://Fighters/Sprites/SlimeOrb.svg" id="3_feb5d"]
+[ext_resource type="Texture2D" uid="uid://d2wpqwounor2k" path="res://Fighters/Sprites/SwordOrb.svg" id="4_fc0e3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_feb5d"]
 a = Vector2(0, 648)
+b = Vector2(0, 0)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fc0e3"]
 b = Vector2(1152, 0)
@@ -15,7 +18,17 @@ b = Vector2(-1152, 0)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_80nbo"]
 b = Vector2(0, -648)
 
+[sub_resource type="Environment" id="Environment_fc0e3"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_levels/5 = 0.2
+glow_levels/6 = 0.3
+glow_levels/7 = 0.7
+glow_bloom = 1.0
+
 [node name="Game" type="Node2D" unique_id=1734292379]
+script = ExtResource("1_ryrav")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=552207043]
 position = Vector2(576, 324)
@@ -26,6 +39,7 @@ position = Vector2(576, 324)
 freeze = true
 
 [node name="TLHorizontal" type="CollisionShape2D" parent="WorldBorders/left" unique_id=1075504395]
+position = Vector2(132, 0)
 shape = SubResource("SegmentShape2D_feb5d")
 
 [node name="top" type="RigidBody2D" parent="WorldBorders" unique_id=1700902988]
@@ -47,13 +61,97 @@ position = Vector2(586, 179)
 freeze = true
 
 [node name="BRVertical" type="CollisionShape2D" parent="WorldBorders/right" unique_id=2072683364]
-position = Vector2(566, 469)
+position = Vector2(434, 469)
 shape = SubResource("SegmentShape2D_80nbo")
 
 [node name="Fighters" type="Node2D" parent="." unique_id=1468436751]
 
-[node name="Fire Orb" parent="Fighters" unique_id=2121634047 groups=["ball"] instance=ExtResource("2_e2o6t")]
-position = Vector2(265, 217)
+[node name="Background" type="ColorRect" parent="." unique_id=339844431]
+z_index = -2
+offset_right = 1153.0
+offset_bottom = 647.0
+color = Color(0.15127608, 0.15127608, 0.15127608, 1)
 
-[node name="Ball" parent="Fighters" unique_id=1385498592 instance=ExtResource("2_feb5d")]
-position = Vector2(860, 251)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=426481406]
+
+[node name="LeftPanel" type="Panel" parent="CanvasLayer" unique_id=1956435230]
+offset_right = 132.0
+offset_bottom = 647.0
+script = ExtResource("3_7jktm")
+
+[node name="FighterPrev" type="TextureRect" parent="CanvasLayer/LeftPanel" unique_id=1510540117]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 132.0
+texture = ExtResource("3_feb5d")
+
+[node name="Name" type="Label" parent="CanvasLayer/LeftPanel" unique_id=1104438015]
+layout_mode = 0
+offset_top = 132.0
+offset_right = 40.0
+offset_bottom = 155.0
+scale = Vector2(1.5694268, 1.3546767)
+
+[node name="Health" type="Label" parent="CanvasLayer/LeftPanel" unique_id=1599514728]
+layout_mode = 0
+offset_top = 196.0
+offset_right = 40.0
+offset_bottom = 219.0
+scale = Vector2(1.5694268, 1.3546767)
+
+[node name="Damage" type="Label" parent="CanvasLayer/LeftPanel" unique_id=239210095]
+layout_mode = 0
+offset_top = 264.0
+offset_right = 40.0
+offset_bottom = 287.0
+scale = Vector2(1.5694268, 1.3546767)
+
+[node name="Speed" type="Label" parent="CanvasLayer/LeftPanel" unique_id=237359556]
+layout_mode = 0
+offset_top = 324.0
+offset_right = 40.0
+offset_bottom = 347.0
+scale = Vector2(1.5694268, 1.3546766)
+
+[node name="RightPanel" type="Panel" parent="CanvasLayer" unique_id=1650797002]
+offset_left = 1020.0
+offset_right = 1152.0
+offset_bottom = 647.0
+script = ExtResource("3_7jktm")
+
+[node name="FighterPrev" type="TextureRect" parent="CanvasLayer/RightPanel" unique_id=1267459278]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 132.0
+texture = ExtResource("4_fc0e3")
+
+[node name="Name" type="Label" parent="CanvasLayer/RightPanel" unique_id=584905182]
+layout_mode = 0
+offset_top = 132.0
+offset_right = 40.0
+offset_bottom = 155.0
+scale = Vector2(1.5694268, 1.3546767)
+
+[node name="Health" type="Label" parent="CanvasLayer/RightPanel" unique_id=1876865496]
+layout_mode = 0
+offset_top = 196.0
+offset_right = 40.0
+offset_bottom = 219.0
+scale = Vector2(1.5694268, 1.3546767)
+
+[node name="Damage" type="Label" parent="CanvasLayer/RightPanel" unique_id=1009208421]
+layout_mode = 0
+offset_top = 264.0
+offset_right = 40.0
+offset_bottom = 287.0
+scale = Vector2(1.5694268, 1.3546767)
+
+[node name="Speed" type="Label" parent="CanvasLayer/RightPanel" unique_id=1327371849]
+layout_mode = 0
+offset_top = 324.0
+offset_right = 40.0
+offset_bottom = 347.0
+scale = Vector2(1.5694268, 1.3546766)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1074748335]
+environment = SubResource("Environment_fc0e3")
