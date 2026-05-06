@@ -8,7 +8,16 @@ func _ready():
 	body_entered.connect(_on_body_entered)
 
 func _process(delta):
+	var parent_orb = get_parent().get_parent()
+	
+	if parent_orb.get_node_or_null("Freeze"):
+		get_parent().visible = false  # hide pivot and everything in it
+		return
+	
+	get_parent().visible = true  # show again when unfrozen
 	get_parent().rotation += rotation_speed * delta  # spin the pivot
+	
+	
 
 func _on_body_entered(body):
 	if on_cooldown:
