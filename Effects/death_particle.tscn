@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c3nhljjf7j0dq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7qotg"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_7qotg"]
+offsets = PackedFloat32Array(0.45070422, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_17e8r"]
+gradient = SubResource("Gradient_7qotg")
+width = 2048
+
+[sub_resource type="Curve" id="Curve_7je5u"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4nvrx"]
+width = 2048
+curve = SubResource("Curve_7je5u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5qo6g"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 250.0
+initial_velocity_max = 750.0
+gravity = Vector3(0, 0, 0)
+scale_min = 20.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_4nvrx")
+color_ramp = SubResource("GradientTexture1D_17e8r")
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=1348191565]
+self_modulate = Color(18.892157, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_7qotg")
+emitting = false
+amount = 15
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_5qo6g")

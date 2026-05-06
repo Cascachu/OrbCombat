@@ -10,6 +10,8 @@ var invincible = false
 var invincibility_timer = 0.0
 const INVINCIBILITY_TIME = 0.3
 
+var deathParticle = preload("res://Effects/death_particle.tscn")
+
 func _ready():
 	add_to_group("ball")
 	health = max_health
@@ -20,7 +22,7 @@ func take_damage(amount, damaged_name):
 	health -= amount
 	print(damaged_name, " got hit! Health: ", health)
 	if health <= 0:
-		queue_free()
+		death()
 
 func use_ability(target):
 	pass  # base ball has no ability, child classes override this
@@ -45,3 +47,10 @@ func _physics_process(delta):
 			
 		else:
 			velocity = velocity.bounce(collision.get_normal()).rotated(randf_range(-0.4, 0.4))
+func death():
+	var _particle = deathParticle.instantiate()
+	_particle.position = global_position
+	_particle.rotation = global_rotation
+	_particle.emitting = true
+	get_tree().current_scene.add_child(_particle)
+	queue_free()
