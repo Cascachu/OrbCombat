@@ -7,6 +7,7 @@ const FIGHTERS = {
 	"Slime Orb": "res://Fighters/slime_orb.tscn",
 	"Sword Orb": "res://Fighters/sword_orb.tscn",
 	"Boom Orb": "res://Fighters/boom_orb.tscn",
+	"Puffer Orb": "res://Fighters/puffer_orb.tscn",
 }
 
 @onready var fighter_one_select = $"Fighter 1/OptionButton"

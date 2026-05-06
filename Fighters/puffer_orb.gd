@@ -19,7 +19,7 @@ func _ready():
 	normal_damage = damage
 
 func use_ability(target):
-	if !puffed:
+	if !puffed and cooldown_timer<=0:
 		puff()
 	else:
 		pass
