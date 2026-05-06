@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bag1leofpql17"]
+
+[ext_resource type="Script" uid="uid://i0t6ka081lvh" path="res://Fighters/puffer_orb.gd" id="1_xo6cd"]
+[ext_resource type="Texture2D" uid="uid://c8dttdrg0v5tw" path="res://Fighters/Sprites/PufferOrb.svg" id="2_ybikv"]
+[ext_resource type="Texture2D" uid="uid://b6hn4xggr38k2" path="res://Fighters/Sprites/PufferOrbPuffed.svg" id="3_4mxjv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xo6cd"]
+radius = 51.0
+
+[node name="Puffer Orb" type="CharacterBody2D" unique_id=722476177]
+script = ExtResource("1_xo6cd")
+normal_texture = ExtResource("2_ybikv")
+puff_texture = ExtResource("3_4mxjv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=960342954]
+texture = ExtResource("2_ybikv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=156506564]
+shape = SubResource("CircleShape2D_xo6cd")
