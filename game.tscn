@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b5wh3lqcdxpye" path="res://stats_panel.gd" id="3_7jktm"]
 [ext_resource type="Texture2D" uid="uid://ey5lnpg8dhbt" path="res://Fighters/Sprites/SlimeOrb.svg" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://d2wpqwounor2k" path="res://Fighters/Sprites/SwordOrb.svg" id="4_fc0e3"]
+[ext_resource type="Script" uid="uid://bpiidg7u08uj8" path="res://game_over.gd" id="5_7jktm"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_feb5d"]
 a = Vector2(0, 648)
@@ -68,9 +69,12 @@ shape = SubResource("SegmentShape2D_80nbo")
 
 [node name="Background" type="ColorRect" parent="." unique_id=339844431]
 z_index = -2
-offset_right = 1153.0
-offset_bottom = 647.0
-color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+offset_left = -376.0
+offset_top = -248.0
+offset_right = 777.0
+offset_bottom = 399.0
+scale = Vector2(1.6399994, 1.6399994)
+color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=426481406]
 
@@ -153,5 +157,26 @@ offset_right = 40.0
 offset_bottom = 347.0
 scale = Vector2(1.5694268, 1.3546766)
 
+[node name="game_over_panel" type="Panel" parent="CanvasLayer" unique_id=1704381332]
+offset_left = 560.0
+offset_top = 304.0
+offset_right = 560.0
+offset_bottom = 304.0
+script = ExtResource("5_7jktm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/game_over_panel" unique_id=177310199]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Result" type="Label" parent="CanvasLayer/game_over_panel/VBoxContainer" unique_id=543449514]
+layout_mode = 2
+
+[node name="Play Again" type="Button" parent="CanvasLayer/game_over_panel/VBoxContainer" unique_id=423930600]
+layout_mode = 2
+text = "Play Again"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1074748335]
 environment = SubResource("Environment_fc0e3")
+
+[connection signal="pressed" from="CanvasLayer/game_over_panel/VBoxContainer/Play Again" to="CanvasLayer/game_over_panel" method="_on_play_again_pressed"]
