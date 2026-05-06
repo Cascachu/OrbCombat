@@ -38,8 +38,9 @@ func die():
 		for i in 2:
 			var child = duplicate()
 			child.generation = generation + 1
+			child.team = team
 			child.position = position + Vector2(randf_range(-30, 30), randf_range(-30, 30))
 			get_parent().add_child(child)
-			child._ready()
+			child.call_deferred("_ready")
 			child.name = "SlimeOrb_Gen" + str(generation + 1) + "_" + str(i+1) #each child slime orb has its own name for clarity
 	queue_free()
