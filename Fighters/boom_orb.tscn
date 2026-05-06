@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bg5uaicjctomu"]
+
+[ext_resource type="Script" uid="uid://dcmxo62d44fhe" path="res://Fighters/boom_orb.gd" id="1_0x168"]
+[ext_resource type="Texture2D" uid="uid://bj3ctjm5r5lgw" path="res://Fighters/Sprites/BoomOrb.svg" id="2_0x168"]
+[ext_resource type="Texture2D" uid="uid://b0qwpqx5281d4" path="res://addons/kenney_particle_pack/circle_01.png" id="3_b06gv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0x168"]
+radius = 70.03667
+
+[node name="Boom Orb" type="CharacterBody2D" unique_id=1549835114]
+script = ExtResource("1_0x168")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2037540745]
+texture = ExtResource("2_0x168")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=541819865]
+shape = SubResource("CircleShape2D_0x168")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1081044730]
+modulate = Color(1, 0, 0, 0.3137255)
+scale = Vector2(1.319998, 1.319998)
+texture = ExtResource("3_b06gv")

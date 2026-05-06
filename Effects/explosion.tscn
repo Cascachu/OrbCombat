@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://7brot4s18kdn"]
+
+[ext_resource type="Texture2D" uid="uid://thvty383d1p7" path="res://addons/kenney_particle_pack/circle_03.png" id="1_bujsa"]
+[ext_resource type="Script" uid="uid://b25xb0dfc3k3e" path="res://Effects/explosion.gd" id="1_xvdnu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bujsa"]
+radius = 182.27452
+
+[node name="explosion" type="Area2D" unique_id=914704186]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_xvdnu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=235336906]
+scale = Vector2(1.1999991, 1.1999991)
+shape = SubResource("CircleShape2D_bujsa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1442922126]
+self_modulate = Color(2.031659, 0.82372564, 0, 1)
+texture = ExtResource("1_bujsa")
