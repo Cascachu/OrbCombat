@@ -31,4 +31,10 @@ func _process(delta):
 
 func show_game_over(result):
 	set_process(false)  # stop checking
+	if result == "Draw!":
+		PlayerStats.add_draw()
+	elif result == fighter_one_name + " wins!":
+		PlayerStats.add_win()  # assuming fighter one is the player
+	else:
+		PlayerStats.add_loss()
 	$CanvasLayer/game_over_panel.show_result(result)

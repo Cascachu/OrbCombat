@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ey5lnpg8dhbt" path="res://Fighters/Sprites/SlimeOrb.svg" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://d2wpqwounor2k" path="res://Fighters/Sprites/SwordOrb.svg" id="4_fc0e3"]
 [ext_resource type="Script" uid="uid://bpiidg7u08uj8" path="res://game_over.gd" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://bfmm5wa0sjjjq" path="res://stats_bar.gd" id="6_ryrav"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_feb5d"]
 a = Vector2(0, 648)
@@ -175,6 +176,33 @@ layout_mode = 2
 [node name="Play Again" type="Button" parent="CanvasLayer/game_over_panel/VBoxContainer" unique_id=423930600]
 layout_mode = 2
 text = "Play Again"
+
+[node name="StatsBar" type="Panel" parent="CanvasLayer" unique_id=1275175576]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+size_flags_horizontal = 4
+script = ExtResource("6_ryrav")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/StatsBar" unique_id=441608281]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Coins" type="Label" parent="CanvasLayer/StatsBar/HBoxContainer" unique_id=1145800522]
+layout_mode = 2
+
+[node name="Wins" type="Label" parent="CanvasLayer/StatsBar/HBoxContainer" unique_id=922399075]
+layout_mode = 2
+
+[node name="Losses" type="Label" parent="CanvasLayer/StatsBar/HBoxContainer" unique_id=578035233]
+layout_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1074748335]
 environment = SubResource("Environment_fc0e3")
