@@ -10,8 +10,11 @@ const FIGHTERS = {
 	"Puffer Orb": "res://Fighters/puffer_orb.tscn",
 }
 
-@onready var fighter_one_select = $"Fighter 1/OptionButton"
-@onready var fighter_two_select = $"Fighter 2/OptionButton"
+@onready var fighter_one_select = $"Fighters/Fighter 1/OptionButton"
+@onready var fighter_two_select = $"Fighters/Fighter 2/OptionButton"
+@onready var bet_on_select = $Betting/BetOn/OptionButton
+@onready var bet_spinbox = $Betting/BetAmount/SpinBox
+
 
 func _ready():
 	for fighter in FIGHTERS.keys():
@@ -21,4 +24,6 @@ func _ready():
 func _on_fight_pressed():
 	GameState.fighter_one = FIGHTERS[fighter_one_select.get_item_text(fighter_one_select.selected)]
 	GameState.fighter_two = FIGHTERS[fighter_two_select.get_item_text(fighter_two_select.selected)]
+	GameState.bet_amount = int(bet_spinbox.value)
+	GameState.bet_on = "one" if bet_on_select.selected == 0 else "two"
 	get_tree().change_scene_to_file("res://game.tscn")

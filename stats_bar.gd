@@ -1,10 +1,9 @@
 extends Panel
 
-@onready var coins_label = $HBoxContainer/Coins
-@onready var wins_label = $HBoxContainer/Wins
-@onready var losses_label = $HBoxContainer/Losses
-
 func _process(delta):
-	coins_label.text = "Coins: " + str(PlayerStats.coins)
-	wins_label.text = "Wins: " + str(PlayerStats.wins)
-	losses_label.text = "Losses: " + str(PlayerStats.losses)
+	if has_node("HBoxContainer/Coins"):
+		$HBoxContainer/Coins.text = "Coins: " + str(PlayerStats.coins)
+	if has_node("HBoxContainer/Wins"):
+		$HBoxContainer/Wins.text = "Wins: " + str(PlayerStats.wins)
+	if has_node("HBoxContainer/Losses"):
+		$HBoxContainer/Losses.text = "Losses: " + str(PlayerStats.losses)

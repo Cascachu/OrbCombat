@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://hfovvtbvvgk0"]
 
 [ext_resource type="Script" uid="uid://b8hh8li4brcrd" path="res://fighter_select.gd" id="1_cq34e"]
+[ext_resource type="Script" uid="uid://bfmm5wa0sjjjq" path="res://stats_bar.gd" id="2_at6jn"]
 
 [node name="Fighter Selection" type="Control" unique_id=437093476]
 layout_mode = 3
@@ -27,15 +28,17 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_cq34e")
 
 [node name="Label" type="Label" parent="Fighter Select" unique_id=1662352123]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -56.5
-offset_right = 56.5
-offset_bottom = 23.0
+offset_left = -56.0
+offset_top = 40.0
+offset_right = 57.0
+offset_bottom = 63.0
 grow_horizontal = 2
 text = "Select Fighters"
 
@@ -50,11 +53,11 @@ offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_cq34e")
 
 [node name="Fighter 1" type="VBoxContainer" parent="Fighter Select/Fighters" unique_id=1030651693]
 layout_mode = 0
-offset_right = 68.0
+offset_left = 16.0
+offset_right = 84.0
 offset_bottom = 47.0
 size_flags_horizontal = 0
 mouse_filter = 2
@@ -73,8 +76,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -68.0
+offset_left = -84.0
 offset_top = -23.5
+offset_right = -16.0
 offset_bottom = 23.5
 grow_horizontal = 0
 grow_vertical = 2
@@ -87,6 +91,49 @@ text = "Fighter 2"
 [node name="OptionButton" type="OptionButton" parent="Fighter Select/Fighters/Fighter 2" unique_id=1212737270]
 layout_mode = 2
 
+[node name="Betting" type="VBoxContainer" parent="Fighter Select" unique_id=36188157]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -29.0
+offset_right = 93.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="BetAmount" type="HBoxContainer" parent="Fighter Select/Betting" unique_id=1784077285]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Fighter Select/Betting/BetAmount" unique_id=473411676]
+layout_mode = 2
+text = "Bet amount:"
+
+[node name="SpinBox" type="SpinBox" parent="Fighter Select/Betting/BetAmount" unique_id=1616124159]
+layout_mode = 2
+
+[node name="BetOn" type="HBoxContainer" parent="Fighter Select/Betting" unique_id=1970531824]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Fighter Select/Betting/BetOn" unique_id=1761100873]
+layout_mode = 2
+text = "Bet on: "
+
+[node name="OptionButton" type="OptionButton" parent="Fighter Select/Betting/BetOn" unique_id=524099877]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Fighter 1"
+popup/item_0/id = 0
+popup/item_1/text = "Fighter 2"
+popup/item_1/id = 1
+
 [node name="Fight!" type="Button" parent="Fighter Select" unique_id=60205262]
 layout_mode = 1
 anchors_preset = 7
@@ -95,9 +142,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -25.0
-offset_top = -176.0
+offset_top = -87.0
 offset_right = 26.0
-offset_bottom = -129.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Fight!"
@@ -113,4 +160,26 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.11481296, 0.094585754, 0.13023326, 1)
 
-[connection signal="pressed" from="Fighter Select/Fight!" to="Fighter Select/Fighters" method="_on_fight_pressed"]
+[node name="StatsBar" type="Panel" parent="Fighter Select" unique_id=430333224]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+size_flags_horizontal = 4
+script = ExtResource("2_at6jn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Fighter Select/StatsBar" unique_id=1135305919]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Coins" type="Label" parent="Fighter Select/StatsBar/HBoxContainer" unique_id=316161582]
+layout_mode = 2
+
+[connection signal="pressed" from="Fighter Select/Fight!" to="Fighter Select" method="_on_fight_pressed"]

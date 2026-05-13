@@ -31,10 +31,15 @@ func _process(delta):
 
 func show_game_over(result):
 	set_process(false)  # stop checking
-	if result == "Draw!":
-		PlayerStats.add_draw()
-	elif result == fighter_one_name + " wins!":
-		PlayerStats.add_win()  # assuming fighter one is the player
+	
+	var won_bet = (result == fighter_one_name + " wins!" and GameState.bet_on == "one") or (result == fighter_two_name + " wins!" and GameState.bet_on == "two")
+	var draw = result == "Draw!"
+	
+	if draw:
+		PlayerStats.add_draw(GameState.bet_amount)
+	elif won_bet:
+		PlayerStats.add_win(GameState.bet_amount)
 	else:
-		PlayerStats.add_loss()
-	$CanvasLayer/game_over_panel.show_result(result)
+		PlayerStats.add_loss(GameState.bet_amount)
+	
+	$CanvasLayer/GameOverPanel.show_result(result)

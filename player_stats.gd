@@ -2,7 +2,7 @@ extends Node
 
 const SAVE_PATH = "user://stats.txt"
 
-var coins = 0
+var coins = 100
 var wins = 0
 var losses = 0
 
@@ -25,15 +25,16 @@ func load_stats():
 	losses = int(file.get_line())
 	file.close()
 
-func add_win():
+func add_win(bet):
 	wins += 1
-	coins += 100
+	coins += bet * 2
 	save_stats()
 
-func add_loss():
+func add_loss(bet):
 	losses += 1
+	coins -= bet
 	save_stats()
 
-func add_draw():
-	coins += 25
+func add_draw(bet):
+	coins += bet 
 	save_stats()
