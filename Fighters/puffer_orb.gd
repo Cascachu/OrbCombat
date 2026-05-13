@@ -37,6 +37,7 @@ func puff():
 	puffed = true
 	puff_timer = 0.0
 	damage = 15
+	speed = 450
 	$Sprite2D.texture = puff_texture
 	scale = Vector2(2.0, 2.0)
 	print(name, " puffed up!")
@@ -45,6 +46,7 @@ func depuff():
 	puffed = false
 	cooldown_timer = PUFF_COOLDOWN
 	damage = normal_damage
+	speed = 600
 	$Sprite2D.texture = normal_texture
 	scale = Vector2(normal_size, normal_size)
 	print(name, " deflated!")

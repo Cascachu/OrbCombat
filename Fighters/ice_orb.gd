@@ -3,6 +3,7 @@ func _ready():
 	max_health = 100
 	damage = 6
 	size = 1.1
+	speed = 650
 	super._ready()
 
 func use_ability(target):
