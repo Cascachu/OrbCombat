@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var team = ""
-var speed = 600.0
+var speed = 600
 var max_health = 100
 var damage = 10
 var size = 1.0
