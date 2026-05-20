@@ -15,6 +15,12 @@ func _ready():
 	$Fighters.add_child(fighter_one)
 	$Fighters.add_child(fighter_two)
 	
+	if PlayerStats.equipped_hat != "":
+		var hat_data = Hats.HATS[PlayerStats.equipped_hat]
+		var bet_fighter = fighter_one if GameState.bet_on == "one" else fighter_two
+		bet_fighter.get_node("Hat").texture = load(hat_data.texture)
+		
+	
 	$CanvasLayer/LeftPanel.setup(fighter_one)
 	$CanvasLayer/RightPanel.setup(fighter_two)
 

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*uid://bcfs0fprxunfk"
 PlayerStats="*uid://ceryvflwpmfgu"
+Hats="*uid://bee5r6234e4wu"
 
 [global_group]
 
