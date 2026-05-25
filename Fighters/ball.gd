@@ -4,7 +4,7 @@ var team = ""
 var speed = 600
 var max_health = 100
 var damage = 10
-var size = 1.0
+var size = 1.5
 var health
 
 var invincible = false

@@ -10,8 +10,8 @@ func _ready():
 	fighter_two_name = fighter_two.name
 	fighter_one.team = "one"
 	fighter_two.team = "two"
-	fighter_one.position = Vector2(200, 300)
-	fighter_two.position = Vector2(600, 300)
+	fighter_one.position = Vector2(640, 540)
+	fighter_two.position = Vector2(1280, 540)
 	$Fighters.add_child(fighter_one)
 	$Fighters.add_child(fighter_two)
 	

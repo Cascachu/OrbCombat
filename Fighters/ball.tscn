@@ -7,7 +7,6 @@
 radius = 70.03667
 
 [node name="Ball" type="CharacterBody2D" unique_id=1385498592 groups=["ball"]]
-scale = Vector2(0.5996859, 0.5996859)
 script = ExtResource("1_41u45")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=295658906]

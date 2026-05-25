@@ -13,7 +13,7 @@ var normal_damage
 func _ready():
 	max_health = 100
 	damage = 5
-	size = 0.6
+	size = 1.1
 	super._ready()
 	normal_size = size
 	normal_damage = damage

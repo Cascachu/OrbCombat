@@ -53,4 +53,13 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Play"
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1220644771]
+z_index = -2
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.13248, 26.923443)
+mouse_filter = 2
+color = Color(0.051970966, 0.05197096, 0.05197095, 1)
+
 [connection signal="pressed" from="Control/Button" to="." method="_on_play_pressed"]

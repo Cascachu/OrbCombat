@@ -1,4 +1,4 @@
-extends Panel
+extends VBoxContainer
 
 var tracked_orb = null
 

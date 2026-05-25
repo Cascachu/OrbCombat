@@ -21,6 +21,14 @@ GameState="*uid://bcfs0fprxunfk"
 PlayerStats="*uid://ceryvflwpmfgu"
 Hats="*uid://bee5r6234e4wu"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/size/resizable=false
+window/size/borderless=true
+
 [global_group]
 
 ball=""
@@ -33,3 +41,4 @@ ball=""
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
