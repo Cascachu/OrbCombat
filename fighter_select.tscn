@@ -149,6 +149,22 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Fight!"
 
+[node name="Shop" type="Button" parent="Fighter Select" unique_id=1590380029]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -146.0
+offset_right = 26.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Shop
+"
+
 [node name="ColorRect" type="ColorRect" parent="Fighter Select" unique_id=1601584570]
 z_index = -1
 layout_mode = 1
@@ -182,4 +198,14 @@ grow_horizontal = 2
 [node name="Coins" type="Label" parent="Fighter Select/StatsBar/HBoxContainer" unique_id=316161582]
 layout_mode = 2
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1591695533]
+z_index = -2
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.13248, 26.923443)
+mouse_filter = 2
+color = Color(0.051970966, 0.05197096, 0.05197095, 1)
+
 [connection signal="pressed" from="Fighter Select/Fight!" to="Fighter Select" method="_on_fight_pressed"]
+[connection signal="pressed" from="Fighter Select/Shop" to="Fighter Select" method="_on_shop_pressed"]

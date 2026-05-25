@@ -27,3 +27,7 @@ func _on_fight_pressed():
 	GameState.bet_amount = int(bet_spinbox.value)
 	GameState.bet_on = "one" if bet_on_select.selected == 0 else "two"
 	get_tree().change_scene_to_file("res://game.tscn")
+
+
+func _on_shop_pressed() -> void:
+	get_tree().change_scene_to_file("res://shop.tscn")
