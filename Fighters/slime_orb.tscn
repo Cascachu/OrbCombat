@@ -14,3 +14,6 @@ texture = ExtResource("2_q3801")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1147807819]
 shape = SubResource("CircleShape2D_k7ex3")
+
+[node name="Hat" type="Sprite2D" parent="." unique_id=1750431493]
+position = Vector2(0, -110.05762)
