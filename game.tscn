@@ -7,21 +7,6 @@
 [ext_resource type="Script" uid="uid://bpiidg7u08uj8" path="res://game_over.gd" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://bfmm5wa0sjjjq" path="res://stats_bar.gd" id="6_ryrav"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_feb5d"]
-a = Vector2(0, 1096)
-b = Vector2(0, -40)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_fc0e3"]
-b = Vector2(1488, 0)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_e2o6t"]
-a = Vector2(768, 0)
-b = Vector2(-1152, 0)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_80nbo"]
-a = Vector2(8, 528)
-b = Vector2(0, -648)
-
 [sub_resource type="Environment" id="Environment_fc0e3"]
 background_mode = 3
 tonemap_mode = 3
@@ -31,57 +16,23 @@ glow_levels/6 = 0.3
 glow_levels/7 = 0.7
 glow_bloom = 1.0
 
-[node name="Game" type="Node2D" unique_id=1734292379]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryrav"]
+size = Vector2(607, 20)
+
+[node name="Game" type="Control" unique_id=553131015]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ryrav")
-
-[node name="WorldBorders" type="Node2D" parent="." unique_id=1257029283]
-
-[node name="left" type="RigidBody2D" parent="WorldBorders" unique_id=51774680]
-freeze = true
-
-[node name="TLHorizontal" type="CollisionShape2D" parent="WorldBorders/left" unique_id=1075504395]
-position = Vector2(220, 0)
-shape = SubResource("SegmentShape2D_feb5d")
-
-[node name="top" type="RigidBody2D" parent="WorldBorders" unique_id=1700902988]
-freeze = true
-
-[node name="TLVertical" type="CollisionShape2D" parent="WorldBorders/top" unique_id=1078312346]
-position = Vector2(208, 0)
-shape = SubResource("SegmentShape2D_fc0e3")
-
-[node name="bottom" type="RigidBody2D" parent="WorldBorders" unique_id=922025722]
-position = Vector2(586, 179)
-freeze = true
-
-[node name="BRHorizontal" type="CollisionShape2D" parent="WorldBorders/bottom" unique_id=1949612561]
-position = Vector2(566, 901)
-shape = SubResource("SegmentShape2D_e2o6t")
-
-[node name="right" type="RigidBody2D" parent="WorldBorders" unique_id=2005693540]
-position = Vector2(586, 179)
-freeze = true
-
-[node name="BRVertical" type="CollisionShape2D" parent="WorldBorders/right" unique_id=2072683364]
-position = Vector2(1114, 437)
-shape = SubResource("SegmentShape2D_80nbo")
-
-[node name="Fighters" type="Node2D" parent="." unique_id=1468436751]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1390747684]
-z_index = -2
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(48.13248, 26.923443)
-mouse_filter = 2
-color = Color(0.051970966, 0.05197096, 0.05197095, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=426481406]
 
 [node name="LeftPanel" type="VBoxContainer" parent="CanvasLayer" unique_id=1660393495]
-offset_right = 132.0
-offset_bottom = 647.0
-scale = Vector2(1.6800007, 1.6800007)
+offset_right = 128.0
+offset_bottom = 480.0
 size_flags_horizontal = 2
 script = ExtResource("3_7jktm")
 
@@ -105,11 +56,9 @@ layout_mode = 2
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -220.0
-offset_right = -88.0
-offset_bottom = 647.0
+offset_left = -132.0
+offset_bottom = 480.0
 grow_horizontal = 0
-scale = Vector2(1.6984068, 1.6915731)
 size_flags_horizontal = 10
 script = ExtResource("3_7jktm")
 
@@ -129,20 +78,30 @@ layout_mode = 2
 [node name="Speed" type="Label" parent="CanvasLayer/RightPanel" unique_id=1327371849]
 layout_mode = 2
 
-[node name="GameOverPanel" type="Panel" parent="CanvasLayer" unique_id=1704381332]
-offset_left = 560.0
-offset_top = 304.0
-offset_right = 560.0
-offset_bottom = 304.0
+[node name="GameOverPanel" type="PanelContainer" parent="CanvasLayer" unique_id=1750055913]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -29.0
+offset_right = 44.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("5_7jktm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverPanel" unique_id=177310199]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Result" type="Label" parent="CanvasLayer/GameOverPanel/VBoxContainer" unique_id=543449514]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Play Again" type="Button" parent="CanvasLayer/GameOverPanel/VBoxContainer" unique_id=423930600]
 layout_mode = 2
@@ -177,5 +136,78 @@ layout_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1074748335]
 environment = SubResource("Environment_fc0e3")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=2065564822]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1932527279]
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.051970966, 0.05197096, 0.05197095, 1)
+
+[node name="WorldBorders" type="Node2D" parent="." unique_id=820074254]
+
+[node name="Top" type="StaticBody2D" parent="WorldBorders" unique_id=618245385]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/Top" unique_id=294313564]
+position = Vector2(422.5, 0)
+shape = SubResource("RectangleShape2D_ryrav")
+
+[node name="ColorRect" type="ColorRect" parent="WorldBorders/Top" unique_id=483042754]
+offset_left = 128.0
+offset_right = 168.0
+offset_bottom = 40.0
+scale = Vector2(14.7999935, 0.20000058)
+
+[node name="Bottom" type="StaticBody2D" parent="WorldBorders" unique_id=748698187]
+position = Vector2(0, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/Bottom" unique_id=1910516318]
+position = Vector2(422.5, 0)
+shape = SubResource("RectangleShape2D_ryrav")
+
+[node name="ColorRect" type="ColorRect" parent="WorldBorders/Bottom" unique_id=365988398]
+offset_left = 128.0
+offset_top = -7.9999995
+offset_right = 168.0
+offset_bottom = 32.0
+scale = Vector2(14.7999935, 0.20000058)
+
+[node name="Left" type="StaticBody2D" parent="WorldBorders" unique_id=1563618361]
+position = Vector2(128, -184)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/Left" unique_id=151406141]
+position = Vector2(422.5, 0)
+shape = SubResource("RectangleShape2D_ryrav")
+
+[node name="ColorRect" type="ColorRect" parent="WorldBorders/Left" unique_id=1745906141]
+offset_left = 128.0
+offset_top = -8.000007
+offset_right = 168.0
+offset_bottom = 31.999992
+scale = Vector2(14.7999935, 0.20000058)
+
+[node name="Right" type="StaticBody2D" parent="WorldBorders" unique_id=1802517931]
+position = Vector2(720, -184)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders/Right" unique_id=2092698976]
+position = Vector2(422.5, 0)
+shape = SubResource("RectangleShape2D_ryrav")
+
+[node name="ColorRect" type="ColorRect" parent="WorldBorders/Right" unique_id=693428758]
+offset_left = 128.0
+offset_right = 168.0
+offset_bottom = 40.0
+scale = Vector2(14.7999935, 0.20000058)
+
+[node name="Fighters" type="Node2D" parent="." unique_id=117297870]
+scale = Vector2(0.8, 0.8)
 
 [connection signal="pressed" from="CanvasLayer/GameOverPanel/VBoxContainer/Play Again" to="CanvasLayer/GameOverPanel" method="_on_play_again_pressed"]

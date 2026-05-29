@@ -13,7 +13,7 @@ var explosion_scene = preload("res://Effects/explosion.tscn")
 func _ready():
 	max_health = 100
 	damage = 5
-	size = 1.7
+	size = 1.2
 	speed = 600
 	super._ready()
 

@@ -3,7 +3,7 @@ extends "res://Fighters/ball.gd"
 func _ready():
 	max_health = 100
 	damage = 5
-	size = 1.5
+	size = 1.0
 	speed = 550
 	super._ready()
 

@@ -36,4 +36,4 @@ scale = Vector2(1.6071247, 0.5905401)
 shape = SubResource("CapsuleShape2D_y1kgs")
 
 [node name="Hat" type="Sprite2D" parent="." unique_id=159766365]
-position = Vector2(0, -110.05762)
+position = Vector2(0, -74)

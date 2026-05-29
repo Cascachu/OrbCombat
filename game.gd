@@ -1,17 +1,20 @@
-extends Node2D
+extends Control
 var fighter_one
 var fighter_two
 var fighter_one_name = ""
 var fighter_two_name = ""
 func _ready():
+	var screen_size = get_viewport().get_visible_rect().size
+	var arena_size = $WorldBorders.scale * Vector2(854, 480) 
+	$WorldBorders.position = (screen_size - arena_size) / 2
 	fighter_one = load(GameState.fighter_one).instantiate()
 	fighter_two = load(GameState.fighter_two).instantiate()
 	fighter_one_name = fighter_one.name
 	fighter_two_name = fighter_two.name
 	fighter_one.team = "one"
 	fighter_two.team = "two"
-	fighter_one.position = Vector2(640, 540)
-	fighter_two.position = Vector2(1280, 540)
+	fighter_one.position = Vector2(400, 420)
+	fighter_two.position = Vector2(800, 420)
 	$Fighters.add_child(fighter_one)
 	$Fighters.add_child(fighter_two)
 	

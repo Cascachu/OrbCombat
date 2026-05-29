@@ -8,17 +8,17 @@ func _ready():
 		0: #big
 			max_health = 100
 			damage = 8
-			size = 1.7
+			size = 1.2
 			speed = 450
 		1: #medium
 			max_health = 50
 			damage = 4
-			size = 1.5
+			size = 1.0
 			speed = 600
 		2: #small
 			max_health = 25
 			damage = 2
-			size = 1.1
+			size = 0.6
 			speed = 750
 	super._ready()
 

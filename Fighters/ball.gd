@@ -4,7 +4,7 @@ var team = ""
 var speed = 600
 var max_health = 100
 var damage = 10
-var size = 1.5
+var size = 1.0
 var health
 
 var invincible = false
@@ -13,6 +13,8 @@ const INVINCIBILITY_TIME = 0.3
 
 var deathParticle = preload("res://Effects/death_particle.tscn")
 static var handled_this_frame = []
+
+const STEERING_STRENGTH = 0.1
 
 func _ready():
 	add_to_group("ball")
@@ -32,6 +34,7 @@ func use_ability(target):
 func _physics_process(delta):
 	handled_this_frame.clear()
 	
+		
 	if invincible:
 		invincibility_timer += delta
 		if invincibility_timer >= INVINCIBILITY_TIME:
@@ -59,6 +62,11 @@ func _physics_process(delta):
 			velocity = push_direction.normalized().rotated(random_angle) * speed
 		else:
 			velocity = velocity.bounce(collision.get_normal()).rotated(randf_range(-0.4, 0.4))
+			# steer towards closest enemy
+			var closest = get_closest_enemy()
+			if closest:
+				var direction_to_enemy = (closest.global_position - global_position).normalized()
+				velocity = velocity.lerp(direction_to_enemy * speed, STEERING_STRENGTH) 
 func death():
 	var _particle = deathParticle.instantiate()
 	_particle.position = global_position
@@ -66,3 +74,15 @@ func death():
 	_particle.emitting = true
 	get_tree().current_scene.add_child(_particle)
 	queue_free()
+	
+func get_closest_enemy():
+	var closest = null
+	var closest_dist = INF
+	for body in get_tree().get_nodes_in_group("ball"):
+		if body == self or body.team == team:
+			continue
+		var dist = global_position.distance_to(body.global_position)
+		if dist < closest_dist:
+			closest_dist = dist
+			closest = body
+	return closest

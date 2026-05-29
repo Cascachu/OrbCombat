@@ -4,9 +4,9 @@ var hat_id = ""
 var hat_price = 0
 
 @onready var preview = $HBoxContainer/TextureRect
-@onready var name_label = $HBoxContainer/VBoxContainer/Name
-@onready var price_label = $HBoxContainer/VBoxContainer/Price
-@onready var action_button = $HBoxContainer/VBoxContainer/action
+@onready var name_label = $HBoxContainer/Name
+@onready var price_label = $HBoxContainer/Price
+@onready var action_button = $HBoxContainer/action
 
 func setup(id, data):
 	hat_id = id
@@ -24,9 +24,11 @@ func refresh():
 		action_button.text = "Buy"
 		action_button.disabled = PlayerStats.coins < hat_price
 	elif equipped:
+		price_label.text = "owned"
 		action_button.text = "Unequip"
 		action_button.disabled = false
 	else:
+		price_label.text = "owned"
 		action_button.text = "Equip"
 		action_button.disabled = false
 

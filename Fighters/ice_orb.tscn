@@ -16,4 +16,4 @@ texture = ExtResource("2_p0aud")
 shape = SubResource("CircleShape2D_ud1ju")
 
 [node name="Hat" type="Sprite2D" parent="." unique_id=1729930197]
-position = Vector2(0, -110.05762)
+position = Vector2(0, -80)

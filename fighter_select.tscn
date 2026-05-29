@@ -198,12 +198,16 @@ grow_horizontal = 2
 [node name="Coins" type="Label" parent="Fighter Select/StatsBar/HBoxContainer" unique_id=316161582]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1591695533]
+[node name="Background" type="CanvasLayer" parent="." unique_id=115762777]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1217557513]
 z_index = -2
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(48.13248, 26.923443)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 color = Color(0.051970966, 0.05197096, 0.05197095, 1)
 

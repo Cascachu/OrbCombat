@@ -58,9 +58,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = 64.0
+offset_top = 16.0
 offset_right = 20.0
-offset_bottom = 113.0
+offset_bottom = 65.0
 grow_horizontal = 2
 text = "Shop
 "
@@ -100,20 +100,24 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -22.5
-offset_top = -87.0
-offset_right = 22.5
-offset_bottom = -56.0
+offset_left = -22.0
+offset_top = -72.0
+offset_right = 23.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Back"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1671517027]
+[node name="Background2" type="CanvasLayer" parent="." unique_id=874824934]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="Background2" unique_id=1738471399]
 z_index = -2
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(48.13248, 26.923443)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 color = Color(0.051970966, 0.05197096, 0.05197095, 1)
 
