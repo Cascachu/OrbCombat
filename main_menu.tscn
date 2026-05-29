@@ -2,6 +2,15 @@
 
 [ext_resource type="Script" uid="uid://kh6nd70ptfri" path="res://main_menu.gd" id="1_06t4h"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
+bg_color = Color(1, 0, 0, 0.5019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0.4117647, 0, 0, 0.827451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(1, 0, 0, 0.77254903)
+
 [node name="main_menu" type="Control" unique_id=1002024225]
 layout_mode = 3
 anchors_preset = 15
@@ -66,4 +75,24 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.051970966, 0.05197096, 0.05197095, 1)
 
+[node name="RESET" type="Button" parent="." unique_id=771520548]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 30.0
+offset_right = 78.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
+text = "RESET ALL STATS"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=981195849]
+title = "Reset?"
+ok_button_text = "yes"
+dialog_text = "Are you sure you want to reset all your stats? There is no going back."
+cancel_button_text = "no"
+
 [connection signal="pressed" from="Control/Button" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="RESET" to="." method="_on_reset_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
