@@ -57,3 +57,11 @@ func buy_hat(hat_id, price):
 func equip_hat(hat_id):
 	equipped_hat = hat_id
 	save_stats()
+	
+func reset_stats():
+	coins = 100
+	wins = 0
+	losses = 0
+	owned_hats = []
+	equipped_hat = ""
+	save_stats()

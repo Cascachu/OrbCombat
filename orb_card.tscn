@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dci7ca8xtmcrd"]
+
+[ext_resource type="Texture2D" uid="uid://ey5lnpg8dhbt" path="res://Fighters/Sprites/SlimeOrb.svg" id="1_5upe1"]
+[ext_resource type="Script" uid="uid://b2j78n3cdpeve" path="res://orb_card.gd" id="1_ou4t4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ou4t4"]
+
+[node name="orb_card" type="PanelContainer" unique_id=1173686332]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -118.0
+offset_right = 64.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ou4t4")
+script = ExtResource("1_ou4t4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1663140350]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="FighterPrev" type="TextureRect" parent="VBoxContainer" unique_id=1783415130]
+layout_mode = 2
+texture = ExtResource("1_5upe1")
+
+[node name="Name" type="Label" parent="VBoxContainer" unique_id=1572950518]
+layout_mode = 2
+
+[node name="Health" type="Label" parent="VBoxContainer" unique_id=1120815360]
+layout_mode = 2
+
+[node name="Damage" type="Label" parent="VBoxContainer" unique_id=1241757942]
+layout_mode = 2
+
+[node name="Speed" type="Label" parent="VBoxContainer" unique_id=1647622367]
+layout_mode = 2

@@ -1,26 +1,33 @@
 extends VBoxContainer
 
-var tracked_orb = null
+var team = ""
+var last_count = 0
 
-@onready var name_label = $Name
-@onready var health_label = $Health
-@onready var damage_label = $Damage
-@onready var speed_label = $Speed
-@onready var fighter_prev = $FighterPrev
+@onready var card_list = $ScrollContainer/CardList
+const ORB_CARD = preload("res://orb_card.tscn")
 
-func setup(orb):
-	tracked_orb = orb
-	fighter_prev.texture = orb.get_node("Sprite2D").texture
-	
+func setup(orb_team):
+	team = orb_team
+
 func _process(delta):
-	if not tracked_orb or not is_instance_valid(tracked_orb):
-		name_label.text = "Dead"
-		health_label.text = ""
-		damage_label.text = ""
-		speed_label.text = ""
-		return
+	var alive = get_tree().get_nodes_in_group("ball").filter(func(b): return b.team == team)
+		
+
+	if alive.size() != last_count:
+		last_count = alive.size()
+		for child in card_list.get_children():
+			child.queue_free()
+		for orb in alive:
+			var card = ORB_CARD.instantiate()
+			card_list.add_child(card)
 	
-	name_label.text = tracked_orb.name
-	health_label.text = "Health: " + str(tracked_orb.health)
-	damage_label.text = "Damage: " + str(tracked_orb.damage)
-	speed_label.text = "Speed: " + str(tracked_orb.speed)
+	for i in card_list.get_child_count():
+		if i >= alive.size():
+			break
+		var card = card_list.get_child(i)
+		var orb = alive[i]
+		card.get_node("VBoxContainer/Name").text = orb.name
+		card.get_node("VBoxContainer/Health").text = "HP: " + str(orb.health)
+		card.get_node("VBoxContainer/Damage").text = "DMG: " + str(orb.damage)
+		card.get_node("VBoxContainer/Speed").text = "SPD: " + str(orb.speed)
+		card.get_node("VBoxContainer/FighterPrev").texture = orb.get_node("Sprite2D").texture

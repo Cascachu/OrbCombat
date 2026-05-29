@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://2s5bx1fvgx7j" path="res://game.gd" id="1_ryrav"]
 [ext_resource type="Script" uid="uid://b5wh3lqcdxpye" path="res://stats_panel.gd" id="3_7jktm"]
-[ext_resource type="Texture2D" uid="uid://ey5lnpg8dhbt" path="res://Fighters/Sprites/SlimeOrb.svg" id="3_feb5d"]
-[ext_resource type="Texture2D" uid="uid://d2wpqwounor2k" path="res://Fighters/Sprites/SwordOrb.svg" id="4_fc0e3"]
 [ext_resource type="Script" uid="uid://bpiidg7u08uj8" path="res://game_over.gd" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://bfmm5wa0sjjjq" path="res://stats_bar.gd" id="6_ryrav"]
 
@@ -36,20 +34,16 @@ offset_bottom = 480.0
 size_flags_horizontal = 2
 script = ExtResource("3_7jktm")
 
-[node name="FighterPrev" type="TextureRect" parent="CanvasLayer/LeftPanel" unique_id=1510540117]
+[node name="Label" type="Label" parent="CanvasLayer/LeftPanel" unique_id=1745931986]
 layout_mode = 2
-texture = ExtResource("3_feb5d")
+size_flags_horizontal = 4
+text = "Team 1"
 
-[node name="Name" type="Label" parent="CanvasLayer/LeftPanel" unique_id=1104438015]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/LeftPanel" unique_id=1535648641]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Health" type="Label" parent="CanvasLayer/LeftPanel" unique_id=1599514728]
-layout_mode = 2
-
-[node name="Damage" type="Label" parent="CanvasLayer/LeftPanel" unique_id=239210095]
-layout_mode = 2
-
-[node name="Speed" type="Label" parent="CanvasLayer/LeftPanel" unique_id=237359556]
+[node name="CardList" type="VBoxContainer" parent="CanvasLayer/LeftPanel/ScrollContainer" unique_id=1631696766]
 layout_mode = 2
 
 [node name="RightPanel" type="VBoxContainer" parent="CanvasLayer" unique_id=509259559]
@@ -62,20 +56,16 @@ grow_horizontal = 0
 size_flags_horizontal = 10
 script = ExtResource("3_7jktm")
 
-[node name="FighterPrev" type="TextureRect" parent="CanvasLayer/RightPanel" unique_id=1267459278]
+[node name="Label" type="Label" parent="CanvasLayer/RightPanel" unique_id=497619152]
 layout_mode = 2
-texture = ExtResource("4_fc0e3")
+size_flags_horizontal = 4
+text = "Team 2"
 
-[node name="Name" type="Label" parent="CanvasLayer/RightPanel" unique_id=584905182]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/RightPanel" unique_id=905675563]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Health" type="Label" parent="CanvasLayer/RightPanel" unique_id=1876865496]
-layout_mode = 2
-
-[node name="Damage" type="Label" parent="CanvasLayer/RightPanel" unique_id=1009208421]
-layout_mode = 2
-
-[node name="Speed" type="Label" parent="CanvasLayer/RightPanel" unique_id=1327371849]
+[node name="CardList" type="VBoxContainer" parent="CanvasLayer/RightPanel/ScrollContainer" unique_id=1947355857]
 layout_mode = 2
 
 [node name="GameOverPanel" type="PanelContainer" parent="CanvasLayer" unique_id=1750055913]

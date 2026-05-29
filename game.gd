@@ -9,14 +9,16 @@ func _ready():
 	$WorldBorders.position = (screen_size - arena_size) / 2
 	fighter_one = load(GameState.fighter_one).instantiate()
 	fighter_two = load(GameState.fighter_two).instantiate()
-	fighter_one_name = fighter_one.name
-	fighter_two_name = fighter_two.name
+	fighter_one.name = GameState.fighter_one.get_file().get_basename().replace("_", " ").capitalize()
+	fighter_two.name = GameState.fighter_two.get_file().get_basename().replace("_", " ").capitalize()
 	fighter_one.team = "one"
 	fighter_two.team = "two"
+	
 	fighter_one.position = Vector2(400, 420)
 	fighter_two.position = Vector2(800, 420)
 	$Fighters.add_child(fighter_one)
 	$Fighters.add_child(fighter_two)
+	
 	
 	if PlayerStats.equipped_hat != "":
 		var hat_data = Hats.HATS[PlayerStats.equipped_hat]
@@ -24,8 +26,9 @@ func _ready():
 		bet_fighter.get_node("Hat").texture = load(hat_data.texture)
 		
 	
-	$CanvasLayer/LeftPanel.setup(fighter_one)
-	$CanvasLayer/RightPanel.setup(fighter_two)
+	$CanvasLayer/LeftPanel.setup("one")
+	$CanvasLayer/RightPanel.setup("two")
+	
 
 func _process(delta):
 	var one_alive = get_tree().get_nodes_in_group("ball").any(func(b): return b.team == "one")
