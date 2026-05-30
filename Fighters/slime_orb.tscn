@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://ckhnnvialojq5" path="res://Fighters/slime_orb.gd" id="1_q3801"]
 [ext_resource type="Texture2D" uid="uid://ey5lnpg8dhbt" path="res://Fighters/Sprites/SlimeOrb.svg" id="2_q3801"]
+[ext_resource type="Script" uid="uid://cxc5bbeh5vb8k" path="res://Fighters/orb_ui.gd" id="3_y8xvk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k7ex3"]
 radius = 70.03667
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7ex3"]
+bg_color = Color(0.6, 1, 0.6, 0.7058824)
 
 [node name="Slime Orb" type="CharacterBody2D" unique_id=971296346 groups=["ball"]]
 script = ExtResource("1_q3801")
@@ -17,3 +21,22 @@ shape = SubResource("CircleShape2D_k7ex3")
 
 [node name="Hat" type="Sprite2D" parent="." unique_id=1750431493]
 position = Vector2(0, -78)
+
+[node name="OrbUI" type="VBoxContainer" parent="." unique_id=1858194768]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 64.0
+offset_right = 50.0
+offset_bottom = 114.0
+grow_horizontal = 2
+script = ExtResource("3_y8xvk")
+
+[node name="HealthBar" type="ProgressBar" parent="OrbUI" unique_id=1528388463]
+custom_minimum_size = Vector2(80, 10)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_k7ex3")
+step = 1.0
+show_percentage = false

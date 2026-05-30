@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://i0t6ka081lvh" path="res://Fighters/puffer_orb.gd" id="1_xo6cd"]
 [ext_resource type="Texture2D" uid="uid://c8dttdrg0v5tw" path="res://Fighters/Sprites/PufferOrb.svg" id="2_ybikv"]
 [ext_resource type="Texture2D" uid="uid://b6hn4xggr38k2" path="res://Fighters/Sprites/PufferOrbPuffed.svg" id="3_4mxjv"]
+[ext_resource type="Script" uid="uid://cxc5bbeh5vb8k" path="res://Fighters/orb_ui.gd" id="4_ybikv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xo6cd"]
 radius = 51.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mxjv"]
+bg_color = Color(0.6, 1, 0.6, 0.7058824)
 
 [node name="Puffer Orb" type="CharacterBody2D" unique_id=722476177]
 script = ExtResource("1_xo6cd")
@@ -20,3 +24,22 @@ shape = SubResource("CircleShape2D_xo6cd")
 
 [node name="Hat" type="Sprite2D" parent="." unique_id=765161399]
 position = Vector2(0, -64)
+
+[node name="OrbUI" type="VBoxContainer" parent="." unique_id=1621739072]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 49.0
+offset_right = 50.0
+offset_bottom = 99.0
+grow_horizontal = 2
+script = ExtResource("4_ybikv")
+
+[node name="HealthBar" type="ProgressBar" parent="OrbUI" unique_id=1393316538]
+custom_minimum_size = Vector2(80, 10)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_4mxjv")
+step = 1.0
+show_percentage = false
