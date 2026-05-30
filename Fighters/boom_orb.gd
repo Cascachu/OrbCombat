@@ -3,7 +3,7 @@ extends "res://Fighters/ball.gd"
 var tick_timer = 0.0
 const TICK_TIME = 1.0
 var ticks = 0
-const TICKS_TO_EXPLODE = 5
+const TICKS_TO_EXPLODE = 4
 const EXPLOSION_DAMAGE = 25
 const EXPLOSION_RADIUS = 150.0
 
@@ -13,8 +13,8 @@ var explosion_scene = preload("res://Effects/explosion.tscn")
 func _ready():
 	max_health = 100
 	damage = 5
-	size = 1.2
-	speed = 600
+	size = 1.1
+	speed = 400
 	super._ready()
 
 func use_ability(target):

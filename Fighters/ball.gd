@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var team = ""
-var speed = 600
+var speed = 500
 var max_health = 100
 var damage = 10
 var size = 1.0
@@ -16,11 +16,29 @@ static var handled_this_frame = []
 
 const STEERING_STRENGTH = 0.1
 
+signal name_loaded
+var skip_name_fetch = false
+
 func _ready():
 	add_to_group("ball")
 	health = max_health
 	velocity = Vector2(-200, -200).normalized() * speed
 	scale = Vector2(size, size)
+	if not skip_name_fetch:
+		fetch_name()
+
+func fetch_name():
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(_on_name_received)
+	http.request("https://randomuser.me/api/?inc=name&noinfo&nat=US,GB,AU,CA,PL,DE,FR,SE,CZ,CH")
+
+func _on_name_received(result, response_code, headers, body):
+	if response_code == 200:
+		var json = JSON.parse_string(body.get_string_from_utf8())
+		name = json["results"][0]["name"]["first"]
+		print("Orb named: ", name)
+		name_loaded.emit()
 
 func take_damage(amount, damaged_name):
 	health -= amount

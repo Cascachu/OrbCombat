@@ -9,17 +9,17 @@ func _ready():
 			max_health = 100
 			damage = 8
 			size = 1.2
-			speed = 450
+			speed = 350
 		1: #medium
 			max_health = 50
 			damage = 4
 			size = 1.0
-			speed = 600
+			speed = 500
 		2: #small
 			max_health = 25
 			damage = 2
 			size = 0.6
-			speed = 750
+			speed = 650
 	super._ready()
 
 func use_ability(target):
@@ -38,12 +38,15 @@ func take_damage(amount, damaged_name):
 func die():
 	is_dying = true
 	if generation < MAX_GENERATIONS:
+		var suffixes = ["II", "III", "IV", "V"]
+		var base_name = name.split(" the ")[0]  # get the base name without any suffix
 		for i in 2:
 			var child = duplicate()
 			child.generation = generation + 1
 			child.team = team
+			child.skip_name_fetch = true  # don't fetch a new name
 			child.position = position + Vector2(randf_range(-30, 30), randf_range(-30, 30))
 			get_parent().add_child(child)
 			child.call_deferred("_ready")
-			child.name = "SlimeOrb_Gen" + str(generation + 1) + "_" + str(i+1) #each child slime orb has its own name for clarity
+			child.name = base_name + " the " + suffixes[generation]
 	queue_free()
