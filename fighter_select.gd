@@ -17,9 +17,13 @@ const FIGHTERS = {
 
 
 func _ready():
+	bet_spinbox.max_value = PlayerStats.coins
 	for fighter in FIGHTERS.keys():
 		fighter_one_select.add_item(fighter)
 		fighter_two_select.add_item(fighter)
+	
+func _process(delta):
+	bet_spinbox.max_value = PlayerStats.coins
 
 func _on_fight_pressed():
 	GameState.fighter_one = FIGHTERS[fighter_one_select.get_item_text(fighter_one_select.selected)]
@@ -27,7 +31,6 @@ func _on_fight_pressed():
 	GameState.bet_amount = int(bet_spinbox.value)
 	GameState.bet_on = "one" if bet_on_select.selected == 0 else "two"
 	get_tree().change_scene_to_file("res://game.tscn")
-
 
 func _on_shop_pressed() -> void:
 	get_tree().change_scene_to_file("res://shop.tscn")
