@@ -14,6 +14,7 @@ const FIGHTERS = {
 @onready var fighter_two_select = $"Fighters/Fighter 2/OptionButton"
 @onready var bet_on_select = $Betting/BetOn/OptionButton
 @onready var bet_spinbox = $Betting/BetAmount/SpinBox
+@onready var same_fighter_popup = $SameFighterPopup
 
 
 func _ready():
@@ -26,6 +27,10 @@ func _process(delta):
 	bet_spinbox.max_value = PlayerStats.coins
 
 func _on_fight_pressed():
+	if fighter_one_select.selected == fighter_two_select.selected:
+		same_fighter_popup.popup_centered()
+		return
+	
 	GameState.fighter_one = FIGHTERS[fighter_one_select.get_item_text(fighter_one_select.selected)]
 	GameState.fighter_two = FIGHTERS[fighter_two_select.get_item_text(fighter_two_select.selected)]
 	GameState.bet_amount = int(bet_spinbox.value)
@@ -34,3 +39,8 @@ func _on_fight_pressed():
 
 func _on_shop_pressed() -> void:
 	get_tree().change_scene_to_file("res://shop.tscn")
+
+
+func _on_all_in_pressed() -> void:
+	bet_spinbox.value = PlayerStats.coins
+	GameState.bet_amount = int(bet_spinbox.value)

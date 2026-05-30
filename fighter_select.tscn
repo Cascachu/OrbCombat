@@ -198,6 +198,20 @@ grow_horizontal = 2
 [node name="Coins" type="Label" parent="Fighter Select/StatsBar/HBoxContainer" unique_id=316161582]
 layout_mode = 2
 
+[node name="SameFighterPopup" type="AcceptDialog" parent="Fighter Select" unique_id=837366148]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+ok_button_text = "OK"
+dialog_text = "Please select two different fighters!"
+
+[node name="AllIn" type="Button" parent="Fighter Select" unique_id=674874321]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 168.0
+offset_right = 356.0
+offset_bottom = 199.0
+text = "All In!"
+
 [node name="Background" type="CanvasLayer" parent="." unique_id=115762777]
 layer = -2
 
@@ -213,3 +227,4 @@ color = Color(0.051970966, 0.05197096, 0.05197095, 1)
 
 [connection signal="pressed" from="Fighter Select/Fight!" to="Fighter Select" method="_on_fight_pressed"]
 [connection signal="pressed" from="Fighter Select/Shop" to="Fighter Select" method="_on_shop_pressed"]
+[connection signal="pressed" from="Fighter Select/AllIn" to="Fighter Select" method="_on_all_in_pressed"]
