@@ -14,7 +14,7 @@ const INVINCIBILITY_TIME = 0.3
 var deathParticle = preload("res://Effects/death_particle.tscn")
 static var handled_this_frame = []
 
-const STEERING_STRENGTH = 0.3
+const STEERING_STRENGTH = 0.2
 
 signal name_loaded
 var skip_name_fetch = false
