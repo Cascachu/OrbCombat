@@ -14,7 +14,7 @@ const INVINCIBILITY_TIME = 0.3
 var deathParticle = preload("res://Effects/death_particle.tscn")
 static var handled_this_frame = []
 
-const STEERING_STRENGTH = 0.1
+const STEERING_STRENGTH = 0.3
 
 signal name_loaded
 var skip_name_fetch = false
@@ -84,7 +84,9 @@ func _physics_process(delta):
 			var closest = get_closest_enemy()
 			if closest:
 				var direction_to_enemy = (closest.global_position - global_position).normalized()
-				velocity = velocity.lerp(direction_to_enemy * speed, STEERING_STRENGTH) 
+				var current_direction = velocity.normalized()
+				var steered_direction = current_direction.lerp(direction_to_enemy, STEERING_STRENGTH).normalized()
+				velocity = steered_direction * speed
 func death():
 	var _particle = deathParticle.instantiate()
 	_particle.position = global_position
