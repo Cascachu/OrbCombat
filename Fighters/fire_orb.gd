@@ -16,4 +16,4 @@ func use_ability(target):
 	burn.name = "Burn"
 	burn.set_script(preload("res://Conditions/burn.gd"))
 	target.add_child(burn)
-	burn.stacks = 1
+	burn.stacks = 3
