@@ -38,15 +38,26 @@ func take_damage(amount, damaged_name):
 func die():
 	is_dying = true
 	if generation < MAX_GENERATIONS:
-		var suffixes = ["II", "III", "IV", "V"]
-		var base_name = name.split(" the ")[0]  # get the base name without any suffix
+		var all_suffixes = {
+			"": ["II", "III"],
+			"II": ["IV", "V"],
+			"III": ["VI", "VII"],
+		}
+		var parts = name.split(" ")
+		var current_suffix = "" if parts.size() == 1 else parts[-1]
+		var base_name = parts[0]
+		var children_suffixes = all_suffixes.get(current_suffix, ["II", "III"])
+		
 		for i in 2:
 			var child = duplicate()
 			child.generation = generation + 1
 			child.team = team
-			child.skip_name_fetch = true  # don't fetch a new name
+			child.skip_name_fetch = true
 			child.position = position + Vector2(randf_range(-30, 30), randf_range(-30, 30))
+			child.name = base_name + " " + children_suffixes[i]
 			get_parent().add_child(child)
 			child.call_deferred("_ready")
-			child.name = base_name + " the " + suffixes[generation]
+			var freeze = child.get_node_or_null("Freeze")
+			if freeze:
+				freeze.queue_free()
 	queue_free()
