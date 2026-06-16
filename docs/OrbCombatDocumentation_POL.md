@@ -147,13 +147,13 @@ Wszystkie orby rozszerzają `ball.gd` i nadpisują `use_ability(target)`.
 
 | Orb | Zdrowie | Obrażenia | Rozmiar | Prędkość | Specjalna Zdolność |
 |-----|---------|-----------|---------|----------|--------------------|
-| Ball | 100 | 10 | 1.0 | 600 | Brak |
-| Fire Orb | 80 | 0 | 0.8 | 600 | Nakładające się podpalenie |
-| Ice Orb | 100 | 6 | 1.1 | 600 | Zamraża cel na 3 takty |
+| Ball | 100 | 10 | 1.0 | 500 | Brak |
+| Fire Orb | 100 | 0 | 0.9 | 700 | Nakładające się podpalenie |
+| Ice Orb | 100 | 6 | 1.1 | 400 | Zamraża cel na 3 ticki (lub przedłuża zamrożenie o kolejne 2 ticki) |
 | Slime Orb | 100 | 8 | 1.2 | 450 | Dzieli się na 2 po śmierci (maks. 3 generacje) |
-| Sword Orb | 120 | 5 | 1.0 | 600 | Obracający się miecz zadaje 15 dmg z odrzutem |
-| Boom Ball | 120 | 8 | 1.1 | 600 | Wybucha co 10 taktów, 25 dmg w promieniu |
-| Puffer Orb | 100 | 5/15 | 0.6/2.0 | 600 | Puchnie co 5s: rozmiar x2, obrażenia x3 |
+| Sword Orb | 100 | 5 | 1.0 | 450 | Obracający się miecz zadaje 15 dmg z odrzutem |
+| Boom Ball | 100 | 5 | 1.1 | 400 | Wybucha co 4 ticki, 25 dmg w promieniu |
+| Puffer Orb | 100 | 5/15 | 0.6/2.0 | 500/350 | Puchnie co 5s: rozmiar x2, obrażenia x3 |
 
 ---
 
@@ -216,10 +216,10 @@ Używa `static var handled_this_frame` — listy współdzielonej przez wszystki
 Wykryto kolizję
 → Generuj posortowane ID kolizji
 → Jeśli ID nie ma w handled_this_frame:
-    → Zadaj obrażenia (obu stronom)
-    → Zastosuj zdolności (obu stronom)
-    → Ustaw obu jako niewrażliwych
-    → Dodaj ID do handled_this_frame
+	→ Zadaj obrażenia (obu stronom)
+	→ Zastosuj zdolności (obu stronom)
+	→ Ustaw obu jako niewrażliwych
+	→ Dodaj ID do handled_this_frame
 → Oblicz kierunek odpychania + losowy kąt
 → Ustaw prędkość
 ```

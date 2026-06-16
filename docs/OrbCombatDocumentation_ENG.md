@@ -147,13 +147,13 @@ All orbs extend `ball.gd` and override `use_ability(target)`.
 
 | Orb | Health | Damage | Size | Speed | Special Ability |
 |-----|--------|--------|------|-------|-----------------|
-| Ball | 100 | 10 | 1.0 | 600 | None |
-| Fire Orb | 80 | 0 | 0.8 | 600 | Stacking burn on hit |
-| Ice Orb | 100 | 6 | 1.1 | 600 | Freezes target for 3 ticks |
+| Ball | 100 | 10 | 1.0 | 500 | None |
+| Fire Orb | 100 | 0 | 0.9 | 700 | Stacking burn on hit |
+| Ice Orb | 100 | 6 | 1.1 | 400 | Freezes target for 3 ticks (or extends the freeze for the next 2 ticks)|
 | Slime Orb | 100 | 8 | 1.2 | 450 | Splits into 2 on death (max 3 generations) |
-| Sword Orb | 120 | 5 | 1.0 | 600 | Orbiting blade deals 15 dmg with knockback |
-| Boom Ball | 120 | 8 | 1.1 | 600 | Explodes every 10 ticks, 25 dmg in radius |
-| Puffer Orb | 100 | 5/15 | 0.6/2.0 | 600 | Puffs up every 5s: size x2, damage x3 |
+| Sword Orb | 100 | 5 | 1.0 | 450 | Orbiting blade deals 15 dmg with knockback |
+| Boom Ball | 100 | 5 | 1.1 | 400 | Explodes every 4 ticks, 25 dmg in radius |
+| Puffer Orb | 100 | 5/15 | 0.6/2.0 | 500/350 | Puffs up every 5s: size x2, damage x3 |
 
 ---
 
